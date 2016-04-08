@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+         <meta charset="utf-8"> 
+        {{sndmap.js}}
+        <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <title>Localiza tweets cercanos</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                {{sndmap.html}}
+                <div class="col-xs-6"></div>
+                <div class="col-xs-6">
+                    <h2>Localiza tweets cercanos</h2>
+                    <p>Introduce las keywords a buscar:</p>                    
+                    <div class="input-group">
+                      <input type="text" class="form-control" id="query" placeholder="Por ej: Playa" onkeypress="if (event.keyCode==13){ getLocation();}">
+                      <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button" onclick="getLocation()">BUSCAR</button>
+                      </span>
+                    </div><!-- /input-group -->
+                    <p id="location"></p>
+                    <div class="list-group">
+                      {% for entry in tweets %}
+                        <a target="_blank" href="{{entry.url}}" class="list-group-item"><img src="{{entry.img}}"> {{entry.text}}</a>
+                      {% else %}
+                        <div class="alert alert-warning" role="alert"><strong>No hay tweets</strong></div>
+                      {% endfor %}
+                    </div><!-- /list-group -->
+                </div><!-- /col-xs-6 -->
+            </div><!-- /row -->
+        </div><!-- /container -->
+        <script>
+            var x = document.getElementById("location");
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+            function showPosition(position) {
+                var q = ''
+                    q = document.getElementById("query").value;
+                window.location = '/' + q + '/' + position.coords.latitude + '/' + position.coords.longitude;
+                x.innerHTML = "Buscando tweets...<br> Latitude: " + position.coords.latitude +
+                              "<br>Longitude: " + position.coords.longitude;
+            }
+        </script>
+    </body>
+</html>
