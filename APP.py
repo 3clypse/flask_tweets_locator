@@ -1,5 +1,5 @@
-#!/usr/bin/python2
-# -*- coding: utf-8 -*
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python
 
 __author__ = 'David Ureba'
 
@@ -24,7 +24,6 @@ def map():
 
 @app.route("/<query>/<coord1>/<coord2>")
 def mapview(query,coord1,coord2):
-
     coordList = {}
     tweets    = []
 
@@ -36,7 +35,6 @@ def mapview(query,coord1,coord2):
             url  = result['entities']['urls'][0]['url']
             item = dict(img=img, text=result['text'], url=url)
             tweets.append( item )
-
             lat   = result["geo"]["coordinates"][0]
             lon   = result["geo"]["coordinates"][1]
             coordList[img] = [(lat, lon)]
