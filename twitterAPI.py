@@ -1,5 +1,5 @@
-#!/usr/bin/python2
-# -*- coding: utf-8 -*
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python
 
 __author__ = 'David Ureba'
 
@@ -11,5 +11,5 @@ def oauth_login():
 	CONSUMER_SECRET	   = ''
 	OAUTH_TOKEN 	   = ''
 	OAUTH_TOKEN_SECRET = ''
-	auth 			   = twitter.oauth.OAuth(OAUTH_TOKEN, OAUTH_TOKEN_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
+	auth = twitter.oauth.OAuth(OAUTH_TOKEN, OAUTH_TOKEN_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
 	return twitter.Twitter(auth=auth)
