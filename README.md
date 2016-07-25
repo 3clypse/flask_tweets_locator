@@ -1,14 +1,14 @@
 # flask_tweets_locator
-Find tweets by keyword and put the location into google-map. 
 
->NOTE: Put your API Keys into 'twitterAPI.py'
+Search tweets by keyword and show it into Google Maps. 
 
-## Requirements
 
- * python2
- * Modules: flask, twitter, flask_googlemaps
- * If you have not installed any module, do: 
- ``` # pip2 install <moduleName> ```
+## Prequisitos
+
+ * Python 2.7
+ * [Flask] (https://pypi.python.org/pypi/Flask)
+ * [Twitter] (https://pypi.python.org/pypi/twitter/)
+ * [flask_googlemaps] (https://pypi.python.org/pypi/Flask-GoogleMaps/)
 
 ## Download
 
@@ -16,17 +16,16 @@ Find tweets by keyword and put the location into google-map.
 $ git clone https://github.com/3clypse/flask_tweets_locator.git
 ```
 
-##Execute
+##Use
+
+>NOTE: Add your API keys into 'twitterAPI.py'
 
 ```
-$ python2 ejercicio.py
+$ python APP.py
 ``` 
-or 
-```
-$ ./ejercicio.py
-```
 
-##Screenshots
+
+##Example
 
 ![alt tag](https://raw.githubusercontent.com/3clypse/flask_tweets_locator/master/img/screen1.png)
 
